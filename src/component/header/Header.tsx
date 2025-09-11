@@ -15,22 +15,25 @@ export const Header = () => {
         resetInactivityTimer();
 
         const onScroll = () => {
-        const y = window.scrollY;
-        const lastY = lastYRef.current;
+            const y = window.scrollY;
+            const lastY = lastYRef.current;
 
-        // 배경 전환
-        setIsScrolled(y > 0);
+            // 배경 전환
+            setIsScrolled(y > 0);
 
-        // 위로 올리면 펼치기
-        const delta = y - lastY;
-        if (delta < 0) {
-            // 위로 스크롤
-            setIsCollapsed(false);
-        }
-        lastYRef.current = y;
+            // 위로 올리면 펼치기
+            const delta = y - lastY;
+            if (delta < 0) {
+                // 위로 스크롤
+                setIsCollapsed(false);
+            }
+            else if (delta > 0) {
+                setIsCollapsed(true);
+            }
+            lastYRef.current = y;
 
-        // 타이머 리셋
-        resetInactivityTimer();
+            // 타이머 리셋
+            resetInactivityTimer();
         };
 
         window.addEventListener('scroll', onScroll, { passive: true });
@@ -52,7 +55,11 @@ export const Header = () => {
     const resetInactivityTimer = () => {
         if (timerRef.current) window.clearTimeout(timerRef.current);
         timerRef.current = window.setTimeout(() => {
-        setIsCollapsed(true);
+            const lastY = lastYRef.current;            
+            if(lastY >0){
+                setIsCollapsed(true);
+            }
+        
         }, 3000); // 3초동안 스크롤이벤트가 없을 시 헤더 접힘
     };
 

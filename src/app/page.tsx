@@ -7,7 +7,7 @@ import Projects from "@/component/Project/Projects";
 
 export default function Home() {
   return (
-    <div className="flex flex-col overflow-y-scroll max-h-svh w-full ">
+    <div className="flex flex-col  w-full ">
       <Header/>
       <main className="" id="main">
        <MainContent/>

@@ -1,8 +1,10 @@
 @import "tailwindcss";
 
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --header-h: 70px;
 }
 
 @theme inline {
@@ -19,8 +21,14 @@
   }
 }
 
+@layer utilities {
+  .title{
+    @apply font-semibold text-[48px] leading-[57px] text-black mt-[120px] ;
+  }
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Pretendard, Arial, Helvetica;
 }

@@ -56,7 +56,7 @@ export const Header = () => {
         if (timerRef.current) window.clearTimeout(timerRef.current);
         timerRef.current = window.setTimeout(() => {
             const lastY = lastYRef.current;            
-            if(lastY >0){
+            if(lastY >0){ // 페이지 상단에서는 사라지지 않게
                 setIsCollapsed(true);
             }
         

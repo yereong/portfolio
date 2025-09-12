@@ -45,3 +45,15 @@ body {
   color: var(--foreground);
   font-family: Pretendard, Arial, Helvetica;
 }
+
+.swiper-pagination-bullet-active{
+   background:  #ffa9a9  !important;
+}
+
+.swiper-3d .swiper-slide-shadow-left {
+  border-radius: 1.5rem;
+}
+
+.swiper-3d .swiper-slide-shadow-right {
+  border-radius: 1.5rem;
+}

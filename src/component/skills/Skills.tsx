@@ -1,4 +1,4 @@
-export default function Skills () {
+"use client";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
@@ -6,12 +6,13 @@ import "swiper/css/pagination";
 import "@/app/globals.css";
 import { EffectCoverflow, Mousewheel, Pagination } from "swiper/modules";
 import { useResize } from "@/hooks/useResize";
+
+export default function Skills() {
   const { width } = useResize();
   const useCardsSwiper = width > 0 && width < 1000;
 
-    return(
-      <div className="bg-gradient-to-b from-[#FFCFCF] to-[#ffffff] flex flex-col items-center h-svh">
-            <div className="title">SKILLS</div>
+ 
+
   const cards = [
     {
       key: "language",
@@ -97,6 +98,11 @@ import { useResize } from "@/hooks/useResize";
     },
   ];
 
+  return (
+    <div className="bg-gradient-to-b from-[#FFCFCF] to-white flex flex-col items-center h-svh px-4 py-12" >
+      <div data-aos="fade-up" className="flex flex-col items-center w-full">
+        <div className="title" >SKILLS</div>
+
         {useCardsSwiper ? (
           <>
             {/* 넓이가 1250 미만일 때 */}
@@ -130,6 +136,13 @@ import { useResize } from "@/hooks/useResize";
             </div>
           </>
         ) : (
+          <div className="flex flex-row justify-around mt-[55px] w-full">
+            {cards.map(({ key, content }) => (
+              <div key={key}>{content}</div>
+            ))}
+          </div>
+        )}
       </div>
-    );
+    </div>
+  );
 }

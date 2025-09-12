@@ -1,4 +1,13 @@
 export default function Skills () {
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/effect-coverflow";
+import "swiper/css/pagination";
+import "@/app/globals.css";
+import { EffectCoverflow, Mousewheel, Pagination } from "swiper/modules";
+import { useResize } from "@/hooks/useResize";
+  const { width } = useResize();
+  const useCardsSwiper = width > 0 && width < 1000;
 
     return(
       <div className="bg-gradient-to-b from-[#FFCFCF] to-[#ffffff] flex flex-col items-center h-svh">
@@ -88,6 +97,39 @@ export default function Skills () {
     },
   ];
 
+        {useCardsSwiper ? (
+          <>
+            {/* 넓이가 1250 미만일 때 */}
+            <div className="mt-[55px] w-full  overflow-visible" >
+              <Swiper
+                effect="coverflow"
+                grabCursor
+                centeredSlides = {true}
+                slidesPerView="auto"
+                coverflowEffect={{
+                  rotate: 50,
+                  stretch: 0,
+                  depth: 100,
+                  modifier: 1,
+                  slideShadows: true,
+                }}
+                pagination={{ clickable: true }}
+                mousewheel
+                modules={[EffectCoverflow, Mousewheel, Pagination]}
+                className="mySwiper overflow-visible"
+              >
+                {cards.map(({ key, content }) => (
+                  <SwiperSlide
+                    key={key}
+                    className="!w-[300px] !h-[300px] !rounded-3xl"
+                  >
+                    {content}
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
+          </>
+        ) : (
       </div>
     );
 }

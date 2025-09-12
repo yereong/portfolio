@@ -38,6 +38,10 @@
     [&::after]:content-[''] [&::after]:absolute [&::after]:top-0 [&::after]:left-0 [&::after]:w-px [&::after]:h-full
     [&::after]:bg-[linear-gradient(180deg,rgba(255,255,255,0.8),transparent,rgba(255,255,255,0.3))]
   }
+
+  .skill{
+    @apply  font-medium text-[16px] leading-[19px] rounded-md px-3 py-1 w-fit
+  }
 }
 
 body {

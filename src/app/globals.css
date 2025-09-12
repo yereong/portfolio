@@ -64,8 +64,24 @@ body {
 
 .swiper.swiper-cards{
   width: 80%;
+  max-width: 900px;
 }
 
 .swiper-3d .swiper-slide-shadow{
   background-color:rgba(0, 0, 0, 0)  !important;
+}
+
+.swiper-button-prev, .swiper-button-next-button-prev{
+  color: #353535 !important;
+  z-index: 80 !important;
+  margin-left: -18%;
+  width: 24px !important;
+  height: 24px !important;
+}
+
+.swiper-button-prev, .swiper-button-next{
+   color: #353535 !important;
+  z-index: 80 !important;
+  width: 24px !important;
+  height: 24px !important;
 }

@@ -61,3 +61,11 @@ body {
 .swiper-3d .swiper-slide-shadow-right {
   border-radius: 1.5rem;
 }
+
+.swiper.swiper-cards{
+  width: 80%;
+}
+
+.swiper-3d .swiper-slide-shadow{
+  background-color:rgba(0, 0, 0, 0)  !important;
+}

@@ -68,19 +68,19 @@ export const Header = () => {
         // 위치 & 레이아웃
         'fixed inset-x-0 top-0 z-50',
         'h-[var(--header-h)]',
-        'border border-b-1 border-black/10',
+        'border border-b-1 border-white/10',
         'flex flex-row justify-between items-center',
         'py-4 px-10',
         'transition-all duration-300 will-change-transform',
         // 접힘(숨김) 애니메이션: 위로 슬라이드
         isCollapsed ? '-translate-y-full' : 'translate-y-0',
         // 배경 전환
-        isScrolled ? 'bg-white/90 backdrop-blur shadow-sm' : 'bg-transparent'
+        isScrolled ? 'bg-black/20 backdrop-blur shadow-sm' : 'bg-transparent'
       ].join(' ')}
     >
-      <div className="font-pretendard not-italic font-semibold text-[32px] leading-[38px] text-black" onClick={()=> handleScroll("main")}>Portfolio</div>
+      <div className="font-pretendard not-italic font-semibold text-[32px] leading-[38px] text-white" onClick={()=> handleScroll("main")}>Portfolio</div>
 
-      <div className="flex flex-row gap-10 font-semibold text-[24px] leading-[29px] text-[#5B5B5B]">
+      <div className={["flex flex-row gap-10 font-semibold text-[24px] leading-[29px] ", isScrolled ? 'text-white' : 'text-[#B5B5B5]'].join(' ')}>
         <button onClick={()=> handleScroll("about")}>About me</button>
         <button onClick={()=> handleScroll("Skills")}>Skills</button>
         <button onClick={()=> handleScroll("Projects")}>Projects</button>

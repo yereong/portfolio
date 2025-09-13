@@ -99,7 +99,7 @@ export default function Skills() {
   ];
 
   return (
-    <div className="bg-gradient-to-b from-[#FFCFCF] to-white flex flex-col items-center h-svh px-4 py-12" >
+    <div className="bg-white flex flex-col items-center h-svh px-4 py-12" >
       <div data-aos="fade-up" className="flex flex-col items-center w-full">
         <div className="title" >SKILLS</div>
 

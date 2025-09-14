@@ -85,3 +85,69 @@ body {
   width: 24px !important;
   height: 24px !important;
 }
+
+.wave-lines {
+  position: absolute;
+  inset: 0;
+  filter: blur(22px);
+  opacity: 0.55;
+  background: repeating-linear-gradient(
+  90deg,
+  rgba(255, 255, 255, 0.18) 0px,
+  rgba(255, 255, 255, 0.18) 2px,
+  rgba(255, 255, 255, 0.00) 14px,
+  rgba(255, 255, 255, 0.00) 28px
+  );
+  background-size: 200% 100%;
+  background-position: 0% 0%;
+  animation: waveShift 5s ease-in-out infinite alternate;
+  }
+
+
+.blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(70px);
+  mix-blend-mode: screen;
+  }
+.beam-blob-1 {
+  width: 80rem; height: 24rem;
+  left: -10%; top: 35%;
+  background: radial-gradient(60% 80% at 35% 50%, rgba(171, 191, 255, 0.45) 0%, rgba(195, 206, 255, 0.267) 70%),
+  radial-gradient(60% 80% at 65% 50%, rgba(120, 152, 255, 0.35) 0%, rgba(120, 174, 255, 0) 70%);
+  animation: floatBeam1 5s ease-in-out infinite alternate;
+  opacity: 0.85;
+  }
+.beam-blob-2 {
+  width: 100rem; height: 6rem;
+  left: 0%; top: 35%;
+  background: radial-gradient(60% 80% at 40% 50%, rgba(34, 75, 255, 0.747) 0%, rgba(118, 149, 216, 0.774) 70%),
+  radial-gradient(60% 80% at 70% 50%, rgba(140, 180, 255, 0.562) 0%, rgba(140, 157, 255, 0) 70%);
+  animation: floatBeam2 3s ease-in-out infinite alternate;
+  opacity: 15;
+  }
+
+
+/* 배경화면 애니메이션 */
+@keyframes waveXY {
+  0%   { transform: translate(calc(var(--dx, 0px) * -0), calc(var(--dy, 0px) * 30)); }
+  50%  { transform: translate(calc(var(--dx, 0px) *  0), calc(var(--dy, 0px) *  0)); }
+  100% { transform: translate(calc(var(--dx, 0px) * -0), calc(var(--dy, 0px) * 30)); }
+}
+
+.wave-anim-slow { animation: waveXY 12s ease-in-out infinite; will-change: transform; }
+.wave-anim      { animation: waveXY 8s ease-in-out infinite; will-change: transform; }
+.wave-anim-fast { animation: waveXY 4s  ease-in-out infinite; will-change: transform; }
+
+
+.wave-layer {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  /* bleed(%)를 커스텀 변수로 받아서 100% + bleed 만큼 확대 */
+  width: calc(100vw + var(--bleed, 110vw));
+  height: calc(100vh + var(--bleed, 110vh));
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  pointer-events: none;
+}
